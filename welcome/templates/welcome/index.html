@@ -300,6 +300,7 @@ $ git push</pre>
 <pre>
 Server hostname: {{ hostname }}
 Database server: {{ database.engine }} ({{ database.url }})
+SELECT 1: {{ result }}
 {% if database.is_sqlite %}<span class="warning">Data persistence warning: You are currently using SQLite. This is fine for development, but your data won't be persisted across application deployments.</span>{% endif %}
 Page views: {{ count }}
 </pre>

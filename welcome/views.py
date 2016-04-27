@@ -12,10 +12,19 @@ def index(request):
     hostname = os.getenv('HOSTNAME', 'unknown')
     PageView.objects.create(hostname=hostname)
 
+    # check database connectivity
+    url = database.info()['url']
+    engine = database.info()['engine']
+    db = create_engine(url)
+    connection = engine.connect()
+    result = connection.execute("select 1")
+    connection.close()
+    
     return render(request, 'welcome/index.html', {
         'hostname': hostname,
         'database': database.info(),
-        'count': PageView.objects.count()
+        'count': PageView.objects.count(),
+        'result': result
     })
 
 def health(request):

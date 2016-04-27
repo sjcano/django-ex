@@ -2,6 +2,7 @@ import os
 from django.shortcuts import render
 from django.conf import settings
 from django.http import HttpResponse
+from sqlalchemy import *
 
 from . import database
 from .models import PageView

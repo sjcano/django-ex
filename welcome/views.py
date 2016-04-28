@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.conf import settings
 from django.http import HttpResponse
 from sqlalchemy import *
-from django.project import database
+from project import database
 
 from . import database
 from .models import PageView

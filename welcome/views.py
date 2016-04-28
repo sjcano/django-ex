@@ -15,7 +15,7 @@ def index(request):
     PageView.objects.create(hostname=hostname)
 
     # check database connectivity
-    db = create_engine(pdb.url())
+    engine = create_engine(pdb.url())
     connection = engine.connect()
     result = connection.execute("select 1")
     connection.close()

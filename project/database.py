@@ -12,6 +12,7 @@ engines = {
 
 def url():
     engine = os.getenv('DATABASE_ENGINE')
+    service_name = os.getenv('DATABASE_SERVICE_NAME', '').upper()
     host = os.getenv('{}_SERVICE_HOST'.format(service_name))
     port = os.getenv('{}_SERVICE_PORT'.format(service_name))
     user = os.getenv('DATABASE_USER')

@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.conf import settings
 from django.http import HttpResponse
 from sqlalchemy import *
-from project import database
+from project import database as pdb
 
 from . import database
 from .models import PageView
@@ -15,7 +15,7 @@ def index(request):
     PageView.objects.create(hostname=hostname)
 
     # check database connectivity
-    db = create_engine(database.url())
+    db = create_engine(pdb.url())
     connection = engine.connect()
     result = connection.execute("select 1")
     connection.close()
